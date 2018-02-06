@@ -17,11 +17,19 @@
 <script>
   ['html', 'body', 'p', 'a'].forEach(targetName => {
     let $element = document.getElementsByTagName(targetName)[0];
-    $element.addEventListener('click', function() {
+    $element.addEventListener('click', function(event) {
+      // event.preventDefault();
+      // event.stopPropagation();
       console.log(targetName, 'click', true);
     }, true);
-    $element.addEventListener('click', function() {
+    $element.addEventListener('click', function(event) {
+      // event.preventDefault();
+      // event.stopPropagation();
+      event.stopImmediatePropagation(); // https://stackoverflow.com/questions/5299740/stoppropagation-vs-stopimmediatepropagation/5299841
       console.log(targetName, 'click', false);
+    }, false);
+    $element.addEventListener('click', function(event) {
+      document.body.style.backgroundColor = "#f00";
     }, false);
   });
 </script>
