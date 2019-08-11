@@ -24,6 +24,7 @@
     clickouter.addEventListener('focus', function(e) {
       e.stopPropagation();
       e.cancelBubble = true;
+      // https://en.wikipedia.org/wiki/DOM_events
       console.log("e.bubbles", e.bubbles);  // 这里为什么一直是true？
       console.log("e.eventPhase", e.eventPhase);
       console.log("e.target", e.target);  // 事件委托
